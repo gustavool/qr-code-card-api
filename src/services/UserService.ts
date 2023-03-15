@@ -63,6 +63,16 @@ class UserService {
 
     return userCreated;
   }
+
+  async delete(id: string): Promise<IResponseUser | null> {
+    const userRemoved = this.userRepository.delete(id);
+
+    if (!userRemoved) {
+      throw new AppError("Error to remove this user", 404);
+    }
+
+    return userRemoved;
+  }
 }
 
 export default UserService;

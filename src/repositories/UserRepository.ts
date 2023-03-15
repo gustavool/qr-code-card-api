@@ -49,6 +49,15 @@ class UserRepository implements IUserRepository {
 
     return null;
   }
+
+  async delete(id: string): Promise<IResponseUser | null> {
+    const userRemoved = await User.findByIdAndDelete(id);
+    if (!!userRemoved) {
+      return UserMapper(userRemoved);
+    }
+
+    return null;
+  }
 }
 
 export default UserRepository;

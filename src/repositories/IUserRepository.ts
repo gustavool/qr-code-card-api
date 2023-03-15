@@ -8,6 +8,8 @@ interface IUserRepository {
   findAll(): Promise<IResponseUser[]>;
 
   save(user: Omit<IUser, "_id">): Promise<IResponseUser | null>;
+
+  delete(id: string): Promise<IResponseUser | null>;
 }
 
 export default IUserRepository;
