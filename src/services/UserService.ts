@@ -51,6 +51,12 @@ class UserService {
   async save(
     user: Omit<IUser, "_id" | "createdAt">
   ): Promise<IResponseUser | null> {
+    const users = await this.userRepository.findAll();
+
+    if (users.length === Number(process.env.LIMIT_USERS)) {
+      throw new AppError("Added users limit reached", 404);
+    }
+
     const createdAt = new Date().toISOString();
     const userCreated = await this.userRepository.save({
       ...user,
