@@ -21,7 +21,6 @@ services:
       - .:/usr/app
     ports:
       - 4000:4000
-    command: npm run dev
 
 volumes:
   db:
