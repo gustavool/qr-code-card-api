@@ -35,4 +35,4 @@ rename `.env.example` to `.env`
 
 ### Run docker-compose
 
-`docker-compose up`
+`docker-compose build && docker-compose up`
