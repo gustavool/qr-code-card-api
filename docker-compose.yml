@@ -1,0 +1,27 @@
+version: "3"
+services:
+  db:
+    image: mongo:latest
+    container_name: db
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: qr-code-users-card
+    ports:
+      - 27017:27017
+    volumes:
+      - db:/data/db
+
+  app:
+    container_name: "qr-code-card-api"
+    build: .
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/app
+    ports:
+      - 4000:4000
+    command: npm run dev
+
+volumes:
+  db:

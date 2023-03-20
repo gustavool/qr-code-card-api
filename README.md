@@ -29,6 +29,10 @@ A simple API to manage and save user data for business card generation. This api
 
 `git clone https://github.com/gustavool/qr-code-card-api.git`
 
-### Run
+### Env
 
-`npm run dev`
+rename `.env.example` to `.env`
+
+### Run docker-compose
+
+`docker-compose up`
